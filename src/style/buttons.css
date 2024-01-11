@@ -1,18 +1,29 @@
 .buttons {
   display: flex;
   height: 400px;
-  border-radius: 0px, 0px, 10px, 10px;
 }
 .operBut {
   display: flex;
 }
+.operBut button {
+  background-color: #858482;
+  border: none;
+  border: solid 0.5px #5d5c5a;
+}
 .sec1 button {
   width: 80px;
   height: 80px;
+  border: solid 0.5px #5d5c5a;
+}
+.sec1 .numbers button {
+  background-color: #6c6b69;
+  border: solid 0.5px #5d5c5a;
 }
 .sec2 button {
   width: 80px;
   height: 80px;
+  background-color: #f1a23d;
+  border: solid 0.5px #5d5c5a;
 }
 .sec1 .numbers:nth-child(10) {
   width: 160px;

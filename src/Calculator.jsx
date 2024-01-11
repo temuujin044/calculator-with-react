@@ -6,40 +6,51 @@ import "./style/global.css";
 import "./style/mainCalc.css";
 import { numberButtons, operatorButtons, operButtons } from "./utils/Buttons";
 
-export default function App() {
-  const [currentSceen, setCurrentSceen] = useState("");
+export default function Calculator() {
+  const [currentScreen, setCurrentScreen] = useState("");
   const [prevScreen, setPrevScreen] = useState("");
-  const [todoOp, setTodoOp] = useState("");
+  const [todoOp, setTodoOp] = useState(" ");
 
   function changeTodoOp(val) {
     setTodoOp(val);
-    setPrevScreen(currentSceen);
-    setCurrentSceen("");
+    setPrevScreen(currentScreen);
+    setCurrentScreen("");
   }
+
   function equalHandler() {
     if (todoOp == "+") {
-      const result = Number(prevScreen) + Number(currentSceen) + "";
-      setCurrentSceen(result);
+      console.log(todoOp);
+      const result = Number(prevScreen) + Number(currentScreen) + "";
+      setCurrentScreen(result);
+    }
+    if (todoOp == "-") {
+      const result = Number(prevScreen) - Number(currentScreen) + "";
+      setCurrentScreen(result);
+    }
+    if (todoOp == "*") {
+      const result = Number(prevScreen) * Number(currentScreen) + "";
+      setCurrentScreen(result);
+    }
+    if (todoOp == "/") {
+      const result = Number(prevScreen) / Number(currentScreen) + "";
+      setCurrentScreen(result);
     }
   }
 
   function changeScreenVal(val) {
-    setCurrentSceen(currentSceen + val);
+    console.log(val);
+    setCurrentScreen(currentScreen + val);
   }
 
   return (
     <div className="mainCalc">
-      <Screen value={currentSceen} />
+      <Screen value={currentScreen} />
       <div className="buttons">
         <div className="sec1">
           <div className="operBut">
             {operButtons.map((val, index) => {
               return (
-                <Button
-                  key={index}
-                  value={val}
-                  changeScreenVal={changeScreenVal}
-                />
+                <ButtonOp key={index} value={val} changeTodoOp={changeTodoOp} />
               );
             })}
           </div>
